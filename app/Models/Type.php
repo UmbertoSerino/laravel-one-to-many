@@ -8,8 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Type extends Model
 {
     use HasFactory;
+    public $table = 'types';
+    protected $fillable = ['name'];
     public function project()
     {
+
         return $this->hasMany(Project::class);
     }
 }
