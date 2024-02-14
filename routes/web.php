@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\ProjectController as AdminProjectController;
+use App\Http\Controllers\Admin\TypeController as AdminTypeController;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -37,4 +39,6 @@ Route::middleware('auth')
         Route::delete('/project/softdelete/{project}', [AdminProjectController::class, 'destroyDelete'])->name('softdelete.destroy');
         // Route Resource Project
         Route::resource('/projects', AdminProjectController::class);
+        // Route Resource Type
+        Route::resource('/types', AdminTypeController::class);
     });
