@@ -13,7 +13,7 @@
                       <p class="card-text">Data: {{ $project['date'] }}</p>
                       <p class="card-text">Descrizione: {{ $project['description'] }}</p>
                       <p class="card-text">Completato: {{ $project['complete'] ? 'ok' : 'non ancora'}}</p>
-                      <p class="card-text">Tipo di linguaggio: {{ $project->type->name}}</p>
+                      <p class="card-text">Tipo: {{ $project->type->name}}</p>
                       
                       <a href="{{ route('admin.projects.index') }}">
                         <button class="btn btn-primary d-inline-block">Torna indietro</button>
