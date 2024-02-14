@@ -38,7 +38,7 @@
                     <input class="form-check-input" type="checkbox" role="switch" id="complete" name="complete" value="1">
                     <label class="form-check-label" for="complete">Completato?</label>
                 </div> 
-                <select class="form-select my-4" aria-label="Default select example" name="type_id">
+                <select class="form-select my-4" aria-label="Default select example">
                     <option selected>Seleziona il Tipo</option>
                     <option value="1">Front-End</option>
                     <option value="2">Back-End</option>
