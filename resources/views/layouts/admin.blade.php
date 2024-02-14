@@ -70,6 +70,16 @@
                                 </div>
                             </li>
                         @endguest
+                        <a href="{{ route('admin.projects.index') }}" class="text-decoration-none">
+                            <button class="btn btn-primary m-2">
+                                Vai ai progetti
+                            </button>
+                        </a>
+                        <a href="{{ route('admin.types.index') }}" class="text-decoration-none">
+                            <button class="btn btn-primary m-2">
+                                Vai ai tipi
+                            </button>
+                        </a>
                     </ul>
                 </div>
             </div>
