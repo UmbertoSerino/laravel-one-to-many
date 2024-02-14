@@ -15,14 +15,12 @@ class TypeSeeder extends Seeder
     {
         $types = [
 
-            [
-                'FrontEnd', 'BackEnd', 'Full Stack',
-            ]
+            'FrontEnd', 'BackEnd', 'Full Stack',
         ];
 
-        foreach ($types as $type) {
+        foreach ($types as $typeName) {
             $newType = new Type();
-            $newType->name = $type['name'];
+            $newType->name = $typeName;
             $newType->save();
         }
     }
