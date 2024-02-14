@@ -18,6 +18,11 @@
                             Vai ai progetti
                         </button>
                     </a>
+                    <a href="{{ route('admin.types.index') }}" class="text-decoration-none">
+                        <button class="btn btn-primary m-2">
+                            Vai ai tipi
+                        </button>
+                    </a>
 
                     {{ __('You are logged in!') }}
                 </div>
