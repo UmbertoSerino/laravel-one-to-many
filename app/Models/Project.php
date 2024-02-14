@@ -11,5 +11,10 @@ class Project extends Model
     use HasFactory;
     use SoftDeletes;
     public $table = 'projects';
-    protected $fillable = ['title', 'description', 'date', 'complete'];
+    protected $fillable = ['title', 'type_id', 'description', 'date', 'complete'];
+
+    public function type()
+    {
+        return $this->belongsTo(Type::class);
+    }
 }

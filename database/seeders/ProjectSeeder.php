@@ -21,6 +21,7 @@ class ProjectSeeder extends Seeder
         $projects = [
             [
                 'title' => 'laravel-primi-passi',
+                'type_id' => 1,
                 'description' => 'Ciao ragazze e ciao ragazzi
                 Esercizio di oggi: Laravel Primi Passi
                 nome repo: laravel-primi-passi
@@ -44,6 +45,7 @@ class ProjectSeeder extends Seeder
             ],
             [
                 'title' => 'laravel-model-controller',
+                'type_id' => 1,
                 'description' => 'Ciao ragazze e ciao ragazzi!
                 Esercizio di oggi:  Laravel Model Controller
                 nome repo: laravel-model-controller
@@ -63,6 +65,7 @@ class ProjectSeeder extends Seeder
             ],
             [
                 'title' => 'laravel-migration-seeder',
+                'type_id' => 2,
                 'description' => 'Ciao ragazze e ciao ragazzi!
                 Esercizio di oggi: Laravel 10 Migration & Seeder
                 nome repo: laravel-migration-seeder
@@ -91,6 +94,7 @@ class ProjectSeeder extends Seeder
             ],
             [
                 'title' => 'laravel-dc-comics',
+                'type_id' => 2,
                 'description' => 'Esercizio di oggi: Laravel DC Comics
                 nome repo: laravel-dc-comics
                 Ciao ragazze e ciao ragazzi!
@@ -109,6 +113,7 @@ class ProjectSeeder extends Seeder
             ],
             [
                 'title' => 'laravel-general-crud',
+                'type_id' => 3,
                 'description' => 'Esercizio di oggi: Pokédex
                 Nome repo: laravel-general-crud
                 Descrizione:
@@ -125,6 +130,7 @@ class ProjectSeeder extends Seeder
         ];
         foreach ($projects as $project) {
             $newProject = new Project();
+            $newProject->type_id = $project['type_id'];
             $newProject->title = $project['title'];
             $newProject->description = $project['description'];
             $newProject->date = $project['date'];
