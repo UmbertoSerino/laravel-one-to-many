@@ -35,6 +35,7 @@ class ProjectController extends Controller
             'title' => 'required', 'max:80',
             'description' => 'required', 'string',
             'date' => 'required', 'date',
+            'type_id' => 'required',
             'complete' => 'required', 'boolean',
         ]);
         $project = Project::create($data);
@@ -75,6 +76,8 @@ class ProjectController extends Controller
         $project->delete();
         return redirect()->route('admin.projects.index');
     }
+
+    // --------------------------------------- Delete
 
     public function indexDelete()
     {

@@ -38,6 +38,13 @@
                     <input class="form-check-input" type="checkbox" role="switch" id="complete" name="complete" value="1">
                     <label class="form-check-label" for="complete">Completato?</label>
                 </div> 
+                <select class="form-select my-4" aria-label="Default select example" name="type_id">
+                    <option selected>Seleziona il Tipo</option>
+                    <option value="1">Front-End</option>
+                    <option value="2">Back-End</option>
+                    <option value="3">Full-Stack</option>
+                  </select>
+
                 <div class="mb-3 input-group">
                     <label for="description" class="input-group-text">Descrizione:</label>
                     <textarea class="form-control"  name="description" id="description" cols="40" rows="10">{{ old('description',$project->description)  }}</textarea>

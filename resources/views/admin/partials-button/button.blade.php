@@ -2,7 +2,7 @@
     <button class="btn btn-success d-inline-block">Modifica</button>
 </a>
 
-<button type="button" class="btn btn-warning m-2 inline-block" data-bs-toggle="modal" data-bs-target="#exampleModal-{{ $project->id }}">
+<button type="button" class="btn btn-danger m-2 inline-block" data-bs-toggle="modal" data-bs-target="#exampleModal-{{ $project->id }}">
     Elimina
 </button>
 
@@ -20,10 +20,9 @@
         <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
 
-        <form class="d-inline-block" action="{{ route('admin.projects.destroy', $project) }}" method="project">
+        <form class="d-inline-block" action="{{ route('admin.projects.destroy', $project) }}" method="POST">
             @csrf
             @method('DELETE')
-
             <button class="btn btn-danger" type="submit">
                 Elimina
             </button>
