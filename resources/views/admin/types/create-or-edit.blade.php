@@ -30,7 +30,7 @@
                     <input class="form-control" type="text" name="name" id="name" value="{{ old('name', $type->name) }}">
                 </div>
                 <div class="mb-3 input-group">
-                    <button type="submit" class="btn btn-success d-line-block">Modifica</button>
+                    <button type="submit" class="btn btn-success d-line-block m-2">Modifica</button>
                 </div>  
             </form>
             <a href="{{ route('admin.types.index') }}" class="m-2">

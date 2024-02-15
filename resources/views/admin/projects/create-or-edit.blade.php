@@ -38,11 +38,20 @@
                     <input class="form-check-input" type="checkbox" role="switch" id="complete" name="complete" value="1">
                     <label class="form-check-label" for="complete">Completato?</label>
                 </div> 
-                <select class="form-select my-4" aria-label="Default select example">
+                <select class="form-select my-4" aria-label="Default select example" name="type_id" id="type_id">
                     <option selected>Seleziona il Tipo</option>
-                    <option value="1">Front-End</option>
-                    <option value="2">Back-End</option>
-                    <option value="3">Full-Stack</option>
+                    @forelse ($types as $type)
+
+                    <option value="{{ $type->id }}"
+                        {{-- condizione per la OLD, l'id del type è uguale alla vecchia categoria? se lo è mettila, sennò metti il tipo del project, se così metti selected--}}
+                        {{ $type->id == old('type_id', $project->type_id) ? 'selected' : ''}}
+                        {{-- Fine condizione old e chiusura tag option--}}
+                        >{{ $type->name }}</option>
+
+
+                    @empty
+                    <option value="3">Non ci sono tipi</option>
+                    @endforelse
                   </select>
 
                 <div class="mb-3 input-group">
@@ -50,7 +59,7 @@
                     <textarea class="form-control"  name="description" id="description" cols="40" rows="10">{{ old('description',$project->description)  }}</textarea>
                 </div>
                 <div class="mb-3 input-group">
-                    <button type="submit" class="btn btn-success d-line-block">Modifica</button>
+                    <button type="submit" class="m-2 btn btn-success d-line-block">Modifica</button>
                 </div>  
             </form>
             <a href="{{ route('admin.projects.index') }}" class="m-2">
