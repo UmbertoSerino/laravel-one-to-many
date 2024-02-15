@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Type;
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProjectController extends Controller
 {
@@ -23,7 +25,8 @@ class ProjectController extends Controller
     public function create()
     {
         $project = new Project();
-        return view('admin.projects.create', compact('project'));
+        $types = Type::all();
+        return view('admin.projects.create', compact('project', 'types'));
     }
 
     /**
@@ -35,10 +38,12 @@ class ProjectController extends Controller
             'title' => 'required', 'max:80',
             'description' => 'required', 'string',
             'date' => 'required', 'date',
-            'type_id' => 'required',
             'complete' => 'required', 'boolean',
+            // Per validare l'id
+            'type_id' => ['exists:types,id'],
         ]);
         $project = Project::create($data);
+        $project->type_id = Auth::id();
         return redirect()->route('admin.projects.show', $project);
     }
 
@@ -55,7 +60,9 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view('admin.projects.edit', compact('project'));
+        $types = Type::all();
+
+        return view('admin.projects.edit', compact('project', 'types'));
     }
 
     /**
@@ -63,7 +70,15 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
-        $data = $request->all();
+        $data = $request->validate([
+            'title' => 'required', 'max:80',
+            'description' => 'required', 'string',
+            'date' => 'required', 'date',
+            'complete' => 'required', 'boolean',
+            // Per validare l'id
+            'type_id' => ['exists:types,id'],
+        ]);
+        $project->type_id = Auth::id();
         $project->update($data);
         return redirect()->route('admin.projects.show', $project);
     }
